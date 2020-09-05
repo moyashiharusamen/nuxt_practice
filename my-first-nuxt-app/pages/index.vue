@@ -1,6 +1,6 @@
 <template>
   <section class="container">
-    <div>
+    <!-- <div>
       <app-logo/>
       <h1 class="title">
         Hello, world
@@ -18,16 +18,22 @@
           target="_blank"
           class="button--grey">GitHub</a>
       </div>
-    </div>
+    </div> -->
   </section>
 </template>
 
 <script>
-import AppLogo from '~/components/AppLogo.vue'
+// import AppLogo from '~/components/AppLogo.vue'
 
 export default {
-  components: {
-    AppLogo
+  // components: {
+  //   AppLogo
+  // }
+  async mounted() {
+    console.log(
+      JSON.stringify(await
+        this.$axios.$get('https://qiita.com/api/v2/items?query=tag:nuxt.js'), true, ' ')
+    )
   }
 }
 </script>
